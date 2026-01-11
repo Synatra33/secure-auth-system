@@ -1,0 +1,21 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyo
+
+# ---- Virtual Environments ----
+.venv/
+venv/
+
+# ---- Testing ----
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ---- Runtime / Sensitive Data ----
+storage/users.json
+storage/audit.log
+
+# ---- OS Junk ----
+.DS_Store
+Thumbs.db
