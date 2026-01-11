@@ -7,9 +7,23 @@ from domain.user import User, UserStatus
 from domain.role import Role
 
 
+
+class DummyAuthService:
+    def invalidate_all_sessions(self, username: str):
+        pass
+
+
+class DummyAuditLogger:
+    def log(self, *args, **kwargs):
+        pass
+
+
 def test_admin_can_list_users(tmp_path: Path):
     repo = JsonUserRepository(tmp_path / "users.json")
-    service = UserService(repo)
+    auth = DummyAuthService()
+    audit = DummyAuditLogger()
+
+    service = UserService(repo, auth, audit)
 
     user1 = User(
         username="alice",
