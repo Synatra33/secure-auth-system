@@ -173,3 +173,16 @@ class UserService:
                 {},
             )
         )
+
+
+# ----------------READ-ONLY ADMIN VIEWS --------------------
+
+    def list_users(self) -> list[User]:
+        """
+        Return all users in the system.
+        Read-only operation.
+        No invariants enforced here.
+        Access control is handled by the admin interface.
+        """
+
+        return list(self._users.list_all())
